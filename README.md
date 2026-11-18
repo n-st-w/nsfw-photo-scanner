@@ -71,7 +71,7 @@ With *Include covered*, these are added: `FEMALE_BREAST_COVERED`, `FEMALE_GENITA
 
 This is a probabilistic detector, not a guarantee. **Treat flags as "review this", not as a verdict.**
 
-- **False positives:** skin-heavy beach or gym photos, babies in the bath, some artwork.
+- **False positives:** skin-heavy beach or gym photos, babies in the bath, some artwork. My sphynx cats flagged as genitalia on my test runs.
 - **Misses:** unusual angles, very dark, small or low-resolution images, drawings and illustrations, partially visible subjects.
 - Video files aren't scanned, and only the first frame of an animated GIF is checked.
 - Speed depends on your CPU. Large photos are downscaled before detection, since the model works at 320 px internally.
@@ -132,3 +132,5 @@ NSFW Photo Scanner is licensed under the **GNU Affero General Public License v3.
 It builds on NudeNet (AGPL-3.0) and other open-source components. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). If you redistribute modified versions, including the exe, you must make your source available under the same licence.
 
 This software is provided "as is", without warranty of any kind. Detection results may be wrong.
+
+Disclosure: This software was built entirely using AI
