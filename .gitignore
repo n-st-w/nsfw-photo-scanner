@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+*.exe
+build.log
+selftest.txt
+nudity_report*.csv
+.scan_tmp/
