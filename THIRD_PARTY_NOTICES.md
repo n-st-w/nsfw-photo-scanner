@@ -4,7 +4,7 @@ NSFW Photo Scanner is distributed under AGPL-3.0 (see `LICENSE`). The Windows ex
 
 | Component | Use | Licence |
 |---|---|---|
-| [NudeNet](https://github.com/notAI-tech/NudeNet) (incl. `320n.onnx` model) | Nudity detection | AGPL-3.0 per the GitHub repository (the PyPI package metadata says MIT; this project follows the stricter AGPL-3.0) |
+| [NudeNet](https://github.com/notAI-tech/NudeNet) (incl. `320n.onnx` model) | Nudity detection | AGPL-3.0 per the GitHub repository (the PyPI package metadata says MIT; this project follows the stricter AGPL-3.0). **Provenance warning:** the NudeNet training dataset was found by C3P (Oct 2025) to contain child sexual abuse material. See "About the detection model" in README.md. No dataset images are bundled. |
 | [ONNX Runtime](https://github.com/microsoft/onnxruntime) | Model inference | MIT |
 | [OpenCV](https://github.com/opencv/opencv-python) (headless) | Image preprocessing (NudeNet dependency) | Apache-2.0 |
 | [NumPy](https://numpy.org/) | Arrays | BSD-3-Clause (plus bundled MIT/Zlib/0BSD/CC0 parts) |

@@ -2,7 +2,7 @@
 
 **Scan a folder of photos for nudity, then quickly review, sort or remove what it finds. Runs 100% offline on Windows.**
 
-NSFW Photo Scanner uses the open-source [NudeNet](https://github.com/notAI-tech/NudeNet) detector to flag images that likely contain nudity, then gives you a review window to confirm or dismiss each flag. No images are ever uploaded anywhere: the model runs locally on your CPU.
+NSFW Photo Scanner uses the open-source [NudeNet](https://github.com/notAI-tech/NudeNet) detector to flag images that likely contain nudity, then gives you a review window to confirm or dismiss each flag. No images are ever uploaded anywhere: the model runs locally on your CPU. Please read [About the detection model](#about-the-detection-model) for an important note on where the model came from.
 
 ![Screenshot](docs/screenshot.png)
 
@@ -75,6 +75,20 @@ This is a probabilistic detector, not a guarantee. **Treat flags as "review this
 - **Misses:** unusual angles, very dark, small or low-resolution images, drawings and illustrations, partially visible subjects.
 - Video files aren't scanned, and only the first frame of an animated GIF is checked.
 - Speed depends on your CPU. Large photos are downscaled before detection, since the model works at 320 px internally.
+
+## About the detection model
+
+This tool uses NudeNet's pre-trained detector (`320n.onnx`), which is bundled in the `nudenet` Python package and in the exe. **You should know where that model comes from before using it.**
+
+In October 2025 the Canadian Centre for Child Protection (C3P) [reported](https://protectchildren.ca/en/press-and-media/news-releases/2025/csam-nude-net) that the NudeNet *image dataset*, about 700,000 images scraped from the internet and distributed via Academic Torrents since 2019, contained nearly 680 images known or suspected to be child sexual abuse and exploitation material. The dataset has since been taken down. The NudeNet detector models are generally understood to be trained on that data, and this project assumes they are.
+
+What that means for this project:
+
+- **No dataset images are included or downloaded.** This repository and the exe contain only code and the trained model weights, a 12 MB file of numerical parameters. A small object-detection model like this does not store or reproduce its training images.
+- **The ethical concern still applies.** The model's abilities were partly learned from images of real victims who never consented. C3P counted research projects relying on the NudeNet *model*, not just the dataset, as part of the problem's reach.
+- **No vetted alternative has been found yet.** Other open-source nudity models (e.g. Falconsai, Marqo, Freepik, GantMan) train on "proprietary" or scraped data and publish no evidence of CSAM screening. If you know of an open model whose training data was screened against IWF, NCMEC or C3P hash lists, please open an issue.
+
+This tool is **not** a CSAM detector and can't tell adults from minors. Organisations handling user uploads should use purpose-built services such as [Thorn Safer](https://safer.io/) or [Microsoft PhotoDNA](https://www.microsoft.com/en-us/photodna).
 
 ## Command-line version
 
