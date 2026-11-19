@@ -18,14 +18,11 @@ NSFW Photo Scanner uses the open-source [NudeNet](https://github.com/notAI-tech/
 - Handles JPG, PNG, WEBP, BMP, TIFF, GIF and iPhone **HEIC**. Photos are auto-rotated from EXIF before detection.
 - Includes a **command-line version** (`scan_nudity.py`) for scripting or batch jobs.
 
-## Download (Windows)
+## Getting started
 
-1. Get `NudityScanner.exe` from the [latest release](../../releases/latest).
-2. Double-click to run. Nothing needs installing.
+**This project is distributed as source code only.** There is no ready-made exe to download. The detection model (NudeNet) is believed to have been trained on a dataset that contained child sexual abuse material (see [About the detection model](#about-the-detection-model)), so this project doesn't redistribute the model itself. When you install the requirements, the model comes directly from the upstream `nudenet` package on PyPI.
 
-> **SmartScreen warning:** the exe isn't code-signed, so Windows may say "Windows protected your PC". Click **More info → Run anyway**. If you'd rather not trust a binary, [run from source](#run-from-source) instead. You can also compare the file against the SHA-256 checksum in the release notes.
-
-The first launch takes a few seconds while the bundled files unpack.
+To use the tool, [run it from source](#run-from-source) (about five minutes), or [build your own exe](#build-the-exe-yourself) on your own PC.
 
 ## How to use
 
@@ -84,7 +81,7 @@ In October 2025 the Canadian Centre for Child Protection (C3P) [reported](https:
 
 What that means for this project:
 
-- **No dataset images are included or downloaded.** This repository and the exe contain only code and the trained model weights, a 12 MB file of numerical parameters. A small object-detection model like this does not store or reproduce its training images.
+- **No dataset images are included or downloaded.** This repository contains only code. The trained model weights, a 12 MB file of numerical parameters, are downloaded from upstream when you install `nudenet`; this project doesn't host or redistribute them. A small object-detection model like this does not store or reproduce its training images.
 - **The ethical concern still applies.** The model's abilities were partly learned from images of real victims who never consented. C3P counted research projects relying on the NudeNet *model*, not just the dataset, as part of the problem's reach.
 - **No vetted alternative has been found yet.** Other open-source nudity models (e.g. Falconsai, Marqo, Freepik, GantMan) train on "proprietary" or scraped data and publish no evidence of CSAM screening. If you know of an open model whose training data was screened against IWF, NCMEC or C3P hash lists, please open an issue.
 
@@ -128,7 +125,9 @@ The GUI is plain Tkinter, so it should also run on macOS and Linux from source. 
 build.bat
 ```
 
-This installs the build requirements into `.venv` and produces `dist\NudityScanner.exe` with PyInstaller. A GitHub Actions workflow (`.github/workflows/build.yml`) does the same on every version tag and attaches the exe to the release.
+This installs the build requirements into `.venv` and produces `dist\NudityScanner.exe` with PyInstaller, for use on your own PC. The exe bundles the NudeNet model downloaded from PyPI, so please read [About the detection model](#about-the-detection-model) before sharing it with anyone else.
+
+The exe isn't code-signed, so Windows SmartScreen may warn you on first launch: click **More info → Run anyway**.
 
 ## Where data is stored
 
