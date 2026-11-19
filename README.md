@@ -75,7 +75,7 @@ This is a probabilistic detector, not a guarantee. **Treat flags as "review this
 
 ## About the detection model
 
-This tool uses NudeNet's pre-trained detector (`320n.onnx`), which is bundled in the `nudenet` Python package and in the exe. **You should know where that model comes from before using it.**
+This tool uses NudeNet's pre-trained detector (`320n.onnx`), which is bundled in the `nudenet` Python package (and in any exe you build yourself). **You should know where that model comes from before using it.**
 
 In October 2025 the Canadian Centre for Child Protection (C3P) [reported](https://protectchildren.ca/en/press-and-media/news-releases/2025/csam-nude-net) that the NudeNet *image dataset*, about 700,000 images scraped from the internet and distributed via Academic Torrents since 2019, contained nearly 680 images known or suspected to be child sexual abuse and exploitation material. The dataset has since been taken down. The NudeNet detector models are generally understood to be trained on that data, and this project assumes they are.
 
